@@ -13,7 +13,8 @@ const userName: string = 'Bob';
 //notaion me batana padta hai kaun sa type hai but inference me automaticly typescript detect kar leti hai
 //upar vala example me ham anotation ka use kiye hai
 
-//--------------------Custum data type-------------------//
+//--------------------Use Union Data Type && Custum data type-------------------//
+let sub: number | string = 'iM'
 
 let apiRequest : 'pendding' | 'success' | 'failure' = 'failure';
 apiRequest = 'pendding'
@@ -25,7 +26,11 @@ let shopOrder: string | undefined;
 for(let order of orders){
     if(order == '23'){
         shopOrder = order;
+        //undefine dena padega kyoki agar shopOrder order 
+        //se match nahi kiya to undefine dena padega
     }
 }
 
-console.log(shopOrder);
+// console.log(shopOrder);
+
+//----------------------------------------
