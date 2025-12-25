@@ -83,3 +83,56 @@ function serve(chai: kulhadChai | Cuttting){
 }
 
 //-------Khud ke types----------//
+
+type ChaiOrder = {
+    type: string
+    sugar: number
+}
+
+function isChaiOrder(obj: any): obj is ChaiOrder{
+    return (
+        typeof obj === 'object' &&
+        obj !== null &&
+        typeof obj.type === 'string' &&
+        typeof obj.sugar === 'number'
+    )
+}
+function serveOrder(item:ChaiOrder | string){
+    if(isChaiOrder(item)){
+        return `Serving ${item.type} chai with ${item.sugar} sugar`
+    }
+
+    return `Servung custom chai: ${item}`
+}
+
+//----------type ke andar type--------------//
+
+type MasalaChai = {type: 'masala'; spicelevel: number};
+type GingerChai = {type: "ginger"; amount: number};
+type ElsichiChai = {type: "elsichi"; aroma: number};
+
+type Chai = MasalaChai | GingerChai | ElsichiChai
+
+function MakeChai(order: Chai){
+    switch (order.type) {
+        case 'masala':
+            return 'Masala chai'
+            break;
+        case 'ginger':
+               return 'Ginger chai'
+               break;
+        case 'elsichi':
+            return 'Elsichi chai'
+            break;
+    }
+}
+
+function brew(order: MasalaChai | GingerChai){
+    if("spicelevel" in order){
+        //
+    }
+}
+
+// function isStringArray(arr: unknown):arr is string[]{
+//     
+// }
