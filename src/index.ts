@@ -136,3 +136,38 @@ function brew(order: MasalaChai | GingerChai){
 // function isStringArray(arr: unknown):arr is string[]{
 //     
 // }
+
+
+//-----------------Never-------------------//
+
+let response:any = "42";
+let numericLength:number = (response as string).length;
+
+type Book = {
+    name:string
+}
+
+let bookString = '{"name: "who moved my cheese}';
+let bookObject = JSON.parse(bookString) as Book;// force fully type dena padata hai
+
+//isi ko bolte hai type asserestion mean ham force fully karva rahe hai
+
+console.log(bookObject.name);
+
+let value:any
+value = "chai"
+value = [1,3,4]
+value = 3.4
+
+let newValue: unknown;
+
+newValue  = "chai"
+newValue = [1,3,4]
+newValue = 3.4
+//newValue.toUppercase() // yha par error ayega because of unknwon;
+//type guard lagana padata hai
+if(typeof newValue === 'string'){
+    newValue.toUpperCase();
+}
+
+//
