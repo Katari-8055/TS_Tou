@@ -154,6 +154,10 @@ let bookObject = JSON.parse(bookString) as Book;// force fully type dena padata 
 
 console.log(bookObject.name);
 
+const data:unknown = "chai aur code"
+const strData:string = data as string;
+
+
 let value:any
 value = "chai"
 value = [1,3,4]
@@ -170,4 +174,35 @@ if(typeof newValue === 'string'){
     newValue.toUpperCase();
 }
 
-//
+//try catch
+
+try{
+
+}catch(error){
+    if(error instanceof Error){
+        console.log(error.message)
+    }
+    console.log(error)
+}
+
+
+type Role = "admin" | "user" 
+
+function redirectBassedRole(role:Role){
+    if(role === "admin"){
+        console.log("redirect to admin page")
+        return
+    }
+
+    if(role === "user"){
+        console.log("redirect to user page")
+        return
+    }
+    role;
+}
+
+// function neverReturn():never{
+//     while(true){
+
+//     }
+// }
